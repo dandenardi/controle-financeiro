@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <link rel="stylesheet" href="../assets/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    
+      @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+    </style>
+
+    
+    <title>Controle Financeiro</title>
+  </head>
+  <body>
+    <div class="header">
+      <div class="frame">
+        <div class="group">
+          <img class="logo" src="../assets/ellipse13.png" alt="logo circulo quadrado triangulo pessoa">
+          <h1>Controle financeiro</h1>
+        </div>
+        <div class="navigation">
+          <a href="/limpar-dados">Limpar dados</a>
+          <img class="line" src="../assets/line.png">
+          <a href="/cadastro-transacoes">Cadastro de transações</a>
+          
+        </div>
+        
+      </div>
+    </div>
+
+    
+    <div class="frame2">
+      <div class="transaction-form">
+        <div class="rectangle">
+          <h1>Nova transação</h1>
+  
+          <form action="/send.html">
+            
+            <div id="dropdown">
+              <label for="transaction-type">Tipo de transação</label>
+              <select name="transactions" id="transactions">
+                <option value="buy">Compra</option>
+                <option value="sell">Venda</optio>
+              </select>
+            </div>
+            
+            
+            <div class="input-medium1">
+              <label for="merch-name">Nome da mercadoria</label>
+              <input type="text" id="merch-name" name="merch-name" value="Input">
+            </div>
+            <div class="input-medium2">
+              <label for="merch-value">Valor:</label>
+              <input type="number" step="0.01" min="0" value="0.00" />   
+            </div>
+  
+            <div id="add-transaction">
+              <input type="submit" value="Adicionar transação">
+            </div>
+            
+          </form>
+  
+        </div>
+        
+        
+      </div>
+        
+      
+      <div class="account-statement">
+        <h1>Extrato de transações</h1>
+        <table> 
+          <tr id="head">
+            <th class="left-content">Mercadoria</th>
+            <th class="right-content">Valor</th>
+            
+          </tr>
+          <tr>
+             <td colspan="2"><img class="horizontal-line" src="../assets/horizontal-line.png"></td>
+            
+          </tr>
+          <tr>
+            <td class="left-content">Lorem ipsum dolor sit amet consectetur</td>
+            <td class="right-content">R$ 12.999,99</td>
+          
+          </tr>
+          <tr>
+            <td colspan="2"><img class="horizontal-line" src="../assets/horizontal-line.png"></td>
+            
+          </tr>
+          <tr>  
+            <td class="left-content">Quis nostrud exercitation</td>
+            <td class="right-content">R$ 99,99</td>
+          </tr>
+          <tr>
+            <td colspan="2"><img class="horizontal-line" src="../assets/horizontal-line.png"></td>
+            
+          </tr>
+          <tr>
+            <td class="left-content">Lorem ipsum </td>
+            <td class="right-content">R$ 9,99</td>
+          </tr>
+          <tr>
+            <td colspan="2"><img class="horizontal-line" src="../assets/horizontal-line.png"></td>
+            
+          </tr>
+          
+          <tr>
+            <td colspan="2"><img class="horizontal-line" src="../assets/horizontal-line.png"></td>
+            
+            
+          </tr>
+          
+          <tr>
+            <td class="left-content">Total </td>
+            <td class="right-content">R$ 12.909,99</td>
+          </tr>
+          
+        </table>
+  
+      </div>
+          
+    </div>
+    
+  </body>
+</html>
