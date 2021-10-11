@@ -1,0 +1,414 @@
+
+
+.header{
+  position: absolute;
+  width: 1500px;
+  height: 80px;
+  left: 0px;
+  top: 0px;
+  
+  background: #E0E0E0;
+
+}
+
+.frame{
+  position: absolute;
+  width: 1100px;
+  height: 79px;
+  left: 200px;
+  top: 0px;
+}
+
+.group{
+  position: absolute;
+  width: 471px;
+  height: 43px;
+  left: 0px;
+  top: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+
+}
+
+.logo{
+  
+  border: 2px solid #333333;
+}
+.group h1{
+ /* Controle financeiro */
+
+  padding-left: 20px;
+
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+
+  color: #333333;
+
+}
+
+.navigation{
+  position: absolute;
+  width: 350px;
+  height: 40px;
+  right: 0px;
+  top: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  
+
+  background: #FFFFFF;
+
+}
+
+
+.line{
+
+  border: 1px solid #979797;
+  align-self: middle;
+}
+
+.navigation a{
+  text-decoration: none;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #333333;
+
+  
+
+}
+
+.frame2{
+  position: absolute;
+  width: 1100px;
+  height: 755px;
+  left: 200px;
+  top: 79px;
+
+
+}
+
+
+.transaction-form{
+
+  position: absolute;
+  width: 400px;
+  height: 344px;
+  left: 0px;
+  top: 31px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+ 
+
+
+}
+
+.rectangle{
+  
+  position: absolute;
+  width: 400px;
+  height: 344px;
+  left: calc(50% - 400px/2);
+  top: calc(50% - 344px/2);
+
+  background: #FFFFFF;
+  border: 1px solid #979797;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.transaction-form h1{
+  
+  position: absolute;
+  width: 174px;
+  height: 20px;
+  left: calc(50% - 174px/2);
+  top: calc(50% - 20px/2 - 142px);
+
+
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+
+  /* or 122% */
+  text-align: center;
+
+  color: #000000;
+}
+
+
+#dropdown{
+  
+  position: absolute;
+  width: 370.2px;
+  height: 57px;
+  top: 61px;
+  left: 14.9px;
+
+}
+
+#transaction-type{
+  width: 370.2px;
+  height: 22.22px;
+
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 61.01%;
+
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+
+  /* or 157% */
+
+  color: #333333;
+
+}
+
+#transactions{
+  position: absolute;
+  height: 32px;
+  left: 0%;
+  right: 0%;
+  top: 25px;
+
+  width: 370.2px;
+  height: 32px;
+  top: 25px;
+  
+
+  background: #FFFFFF;
+  border: 1px solid #979797;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.input-medium1{
+
+  width: 370.2px;
+  height: 22.35px;
+  position: absolute;
+  left: 3.72%;
+  right: 3.72%;
+  top: 40.12%;
+  bottom: 43.31%;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+
+  /* or 157% */
+
+  color: #333333;
+
+}
+
+.input-medium1 label{
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 60.78%;
+
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+
+  /* or 157% */
+
+  color: #333333;
+}
+
+.input-medium1 input{
+  
+  width: 370px;
+  height: 32px;
+  top: 24px;
+
+  
+  position: absolute;
+  height: 32px;
+  left: 0px;
+  right: 0.2px;
+  top: 24px;
+
+  background: #FFFFFF;
+  border: 1px solid #979797;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.input-medium2{
+  position: absolute;
+  left: 3.72%;
+  right: 3.72%;
+  top: 62.5%;
+  bottom: 21.51%;
+}
+
+.input-medium2 label{
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 60.78%;
+
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+
+  /* identical to box height, or 157% */
+
+  color: #333333;
+}
+
+.input-medium2 input{
+  width: 370px;
+  height: 32px;
+  top: 24px;
+  
+  position: absolute;
+  height: 32px;
+  left: 0px;
+  right: 0.2px;
+  
+
+  background: #FFFFFF;
+  border: 1px solid #979797;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+#add-transaction-btn{
+  
+
+  position: absolute;
+  height: 3.72%;
+  left: 3.72%;
+  right: 84.59%;
+  top: 5.81%;
+
+  width: 370.2px;
+  height: 33px;
+  top: 291px;
+  left: 14.9px;
+  
+  
+
+  background: #333333;
+  border-radius: 4px;
+
+
+}
+
+#add-transaction{
+  
+
+  position: absolute;
+  height: 3.72%;
+  left: 3.72%;
+  right: 84.59%;
+  top: 5.81%;
+  display: flex;
+  width: 370.2px;
+  height: 33px;
+  top: 291px;
+  left: 14.9px;
+  
+  
+
+  background: #333333;
+  border-radius: 4px;
+
+
+}
+
+#add-transaction input{
+  /* or 157% */
+  display: block;
+  align-items: center;
+  text-align: center;
+  
+  width: 370.2px;
+  height: 32px;
+  top: 0.78px;
+
+  position: absolute;
+  height: 32px;
+  left: 0%;
+  right: 0%;
+  top: 0.78px;
+
+  background-color: #333333;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+
+ 
+
+  color: #FFFFFF;
+
+}
+
+.account-statement{
+  position: absolute;
+  width: 680px;
+  height: 281px;
+  left: 420px;
+  top: 31px;
+
+  background: #FFFFFF;
+}
+
+.account-statement h1{
+ 
+  position: absolute;
+  width: 177px;
+  height: 20px;
+  left: 239px;
+  top: 21px;
+  
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  
+  /* or 122% */
+  
+  color: #000000;
+}
+
+.account-statement table{
+
+  position: absolute;
+  width: 72px;
+  height: 22px;
+  left: 40px;
+  top: 70px;
+
+}
