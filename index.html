@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-    <link rel="stylesheet" href="../controle-financeiro/assets/style.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../controle-financeiro/assets/style.css"/>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <style>
     
       @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
@@ -14,19 +14,29 @@
     <title>Controle Financeiro</title>
   </head>
   <body>
+    <div class="status-bar">
+      <p class="clock">9:42 AM</p>
+      <div class="frame-8">
+        <img src="../controle-financeiro/assets/vector-3.png" alt="ícone bluetooth">
+        <p class="battery-level">42%</p>
+      </div>
+      
+    </div>
     <div class="header">
       <div class="frame">
         <div class="group">
           <img class="logo" src="../controle-financeiro/assets/ellipse13.png" alt="logo circulo quadrado triangulo pessoa">
           <h1>Controle financeiro</h1>
         </div>
+        <div class="menu-mobile">
+          <img class="menu-mobile" src="../controle-financeiro/assets/menu.png" alt="menu para dispositivo móvel">
+        </div>
+        
         <div class="navigation">
           <a href="/limpar-dados">Limpar dados</a>
           <img class="line" src="assets/line.png">
           <a href="/cadastro-transacoes">Cadastro de transações</a>
-          
-        </div>
-        
+      
       </div>
     </div>
 
@@ -34,7 +44,7 @@
     <div class="frame2">
       <div class="transaction-form">
         <div class="rectangle">
-          <h1>Nova transação</h1>
+          <h1 id="form-h1">Nova transação</h1>
   
           <form action="/send.html">
             
@@ -70,54 +80,57 @@
       
       <div class="account-statement">
         <h1>Extrato de transações</h1>
-        <table> 
-          <tr id="head">
-            <th class="left-content">Mercadoria</th>
-            <th class="right-content">Valor</th>
+        <div class="table-frame">
+          <table> 
+            <tr id="head">
+              <th class="left-content">Mercadoria</th>
+              <th class="right-content">Valor</th>
+              
+            </tr>
+            <tr>
+               <td colspan="2"><img class="horizontal-line" src="assets/horizontal-line.png"></td>
+              
+            </tr>
+            <tr>
+              <td class="left-content">Lorem ipsum dolor sit amet consectetur</td>
+              <td class="right-content">R$ 12.999,99</td>
             
-          </tr>
-          <tr>
-             <td colspan="2"><img class="horizontal-line" src="assets/horizontal-line.png"></td>
+            </tr>
+            <tr>
+              <td colspan="2"><img class="horizontal-line" src="assets/horizontal-line.png"></td>
+              
+            </tr>
+            <tr>  
+              <td class="left-content">Quis nostrud exercitation</td>
+              <td class="right-content">R$ 99,99</td>
+            </tr>
+            <tr>
+              <td colspan="2"><img class="horizontal-line" src="assets/horizontal-line.png"></td>
+              
+            </tr>
+            <tr>
+              <td class="left-content">Lorem ipsum </td>
+              <td class="right-content">R$ 9,99</td>
+            </tr>
+            <tr>
+              <td colspan="2"><img class="horizontal-line" src="assets/horizontal-line.png"></td>
+              
+            </tr>
             
-          </tr>
-          <tr>
-            <td class="left-content">Lorem ipsum dolor sit amet consectetur</td>
-            <td class="right-content">R$ 12.999,99</td>
-          
-          </tr>
-          <tr>
-            <td colspan="2"><img class="horizontal-line" src="assets/horizontal-line.png"></td>
+            <tr>
+              <td colspan="2"><img class="horizontal-line" src="assets/horizontal-line.png"></td>
+              
+              
+            </tr>
             
-          </tr>
-          <tr>  
-            <td class="left-content">Quis nostrud exercitation</td>
-            <td class="right-content">R$ 99,99</td>
-          </tr>
-          <tr>
-            <td colspan="2"><img class="horizontal-line" src="assets/horizontal-line.png"></td>
+            <tr>
+              <td class="left-content">Total </td>
+              <td class="right-content">R$ 12.909,99</td>
+            </tr>
             
-          </tr>
-          <tr>
-            <td class="left-content">Lorem ipsum </td>
-            <td class="right-content">R$ 9,99</td>
-          </tr>
-          <tr>
-            <td colspan="2"><img class="horizontal-line" src="assets/horizontal-line.png"></td>
-            
-          </tr>
-          
-          <tr>
-            <td colspan="2"><img class="horizontal-line" src="assets/horizontal-line.png"></td>
-            
-            
-          </tr>
-          
-          <tr>
-            <td class="left-content">Total </td>
-            <td class="right-content">R$ 12.909,99</td>
-          </tr>
-          
-        </table>
+          </table>
+        </div>
+        
   
       </div>
           

@@ -68,6 +68,11 @@
 
 }
 
+.frame-8{
+  display: none;
+}
+
+
 
 .line{
 
@@ -410,5 +415,254 @@
   height: 22px;
   left: 40px;
   top: 70px;
+
+}
+
+/* smartphone*/
+@media screen and (max-width: 411px) {
+  
+  body{
+    position: absolute;
+    width: 411px;
+    height: 731px;
+    top: 0px;
+    left: 0px;
+    display: flex;
+
+    background: #FFFFFF;
+  }
+
+  .status-bar{
+    
+    position: absolute;
+    width: 411px;
+    height: 24px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+
+    background: #000000;
+
+  }
+
+  .clock{
+    position: absolute;
+    width: 50px;
+    height: 15px;
+    left: calc(50% - 50px/2 + 1px);
+    top: -4px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+
+    color: #FFFFFF;
+  }
+
+  .frame-8{
+    position: absolute;
+    width: 88px;
+    height: 18px;
+    right: 2.36px;
+    top: 2px;
+  }
+
+  .frame-8 img{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 0px;
+    top: 0px;
+
+  }
+
+  .battery-level{
+    position: absolute;
+    width: 25px;
+    height: 15px;
+    left: 29.86px;
+    top: -8.5px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+
+    color: #FFFFFF;
+  }
+
+  .frame {
+    position: absolute;
+    width: 411px;
+    height: 60px;
+    left: 0px;
+    top: 24px;
+  }
+
+  .group {
+    position: absolute;
+    width: 411px;
+    height: 0px;
+    left: 0px;
+    top: 0px;
+  }
+  
+  .header{
+    position: absolute;
+    width: 411px;
+    height: 60px;
+    left: 0px;
+    top: 24px;
+    
+    
+    background: #E0E0E0;
+
+  }
+
+  
+  .header .logo{
+
+    position: absolute;
+    width: 30px;
+    height: 27.63px;
+    left: 30px;
+    top: -10px;
+    align-items: center;
+
+  }
+
+  .header h1{
+    position: absolute;
+    width: 411px;
+    height: 43px;
+    left: 100px;
+    top: -30px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #333333;
+  }
+
+  .navigation {
+    display: none;
+  }
+  
+  .menu-mobile {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 180px;
+    top: -3px;
+  }
+
+  .frame2{
+    position: absolute;
+    width: 411px;
+    height: 731px;
+    left: 0px;
+    top: 60px;
+  }
+
+  .rectangle{
+    border-color: transparent;
+  }
+
+  .account-statement{
+    position: absolute;
+    width: 411px;
+    height: 381px;
+    left: -5px;
+    top: 360px;
+  
+    background: #FFFFFF;
+  }
+  
+  .account-statement h1{
+   
+    position: absolute;
+    width: 176px;
+    height: 20px;
+    left: 109px;
+    top: 0px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+
+    /* or 122% */
+
+    color: #000000;
+  }
+  
+  .table-frame{
+  
+    position: absolute;
+    width: 371px;
+    height: 381px;
+    left: -15px;
+    top: 60px;
+    
+  }
+
+  .account-statement table{
+    position: absolute;
+    table-layout: fixed;
+    width: 371px;
+    height: 381px;
+    left: 30px;
+    top: 0px;
+    width: 100%;
+  }
+
+  .horizontal-line{
+    width: 371px;
+    height: 0px;
+    left: 0px;
+    top: 22px;
+    border: 1px solid #979797;
+  }
+
+  .right-content{
+    text-align: end;
+  }
+
+  .transaction-form{
+    position: absolute;
+    width: 411px;
+    height: 60px;
+    left: 0px;
+    top: 144px;
+
+  }
+
+  #form-h1{
+    
+    position: absolute;
+    width: 150px;
+    height: 43px;
+    left: 120px;
+    top: 0px;
+  }
+
 
 }
