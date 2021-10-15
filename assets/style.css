@@ -72,7 +72,9 @@
   display: none;
 }
 
-
+.menu-mobile{
+  display: none;
+}
 
 .line{
 
@@ -422,48 +424,28 @@
 @media screen and (max-width: 411px) {
   
   body{
-    position: absolute;
+    position: relative;
     width: 411px;
     height: 731px;
-    top: 0px;
-    left: 0px;
-    display: flex;
+    margin: 0;
+    padding: 0;
 
     background: #FFFFFF;
+
   }
 
-  .status-bar{
-    
+
+
+  .footer{
     position: absolute;
     width: 411px;
-    height: 24px;
+    height: 8px;
     left: 0px;
-    right: 0px;
-    top: 0px;
+    top: 723px;
 
-    background: #000000;
-
+    background: #333333;
   }
 
-  .clock{
-    position: absolute;
-    width: 50px;
-    height: 15px;
-    left: calc(50% - 50px/2 + 1px);
-    top: -4px;
-
-    font-family: Lato;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 14px;
-
-    /* identical to box height */
-    display: flex;
-    align-items: center;
-
-    color: #FFFFFF;
-  }
 
   .frame-8{
     position: absolute;
@@ -471,83 +453,40 @@
     height: 18px;
     right: 2.36px;
     top: 2px;
-  }
-
-  .frame-8 img{
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    left: 0px;
-    top: 0px;
 
   }
 
-  .battery-level{
-    position: absolute;
-    width: 25px;
-    height: 15px;
-    left: 29.86px;
-    top: -8.5px;
 
-    font-family: Lato;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 14px;
 
-    /* identical to box height */
-    display: flex;
-    align-items: center;
-
-    color: #FFFFFF;
-  }
-
-  .frame {
-    position: absolute;
-    width: 411px;
-    height: 60px;
-    left: 0px;
-    top: 24px;
-  }
-
-  .group {
-    position: absolute;
-    width: 411px;
-    height: 0px;
-    left: 0px;
-    top: 0px;
-  }
-  
   .header{
+
     position: absolute;
     width: 411px;
     height: 60px;
     left: 0px;
     top: 24px;
-    
-    
+
     background: #E0E0E0;
 
   }
 
-  
-  .header .logo{
-
-    position: absolute;
-    width: 30px;
-    height: 27.63px;
-    left: 30px;
-    top: -10px;
-    align-items: center;
-
-  }
-
-  .header h1{
+  .frame2{
     position: absolute;
     width: 411px;
+    height: 731px;
+    top: 0px;
+    left: 0px;
+  }
+
+
+  .header-h1{
+    /* Controle financeiro */
+
+    position: absolute;
+    width: 176px;
     height: 43px;
-    left: 100px;
-    top: -30px;
+    left: 129px;
+    top: -6px;
 
     font-family: Lato;
     font-style: normal;
@@ -559,49 +498,252 @@
     text-align: center;
 
     color: #333333;
+
   }
 
-  .navigation {
-    display: none;
+
+
+  .logo{
+    position: absolute;
+    width: 30px;
+    height: 27.63px;
+    left: 22px;
+    top: 15px;
   }
-  
-  .menu-mobile {
+
+
+
+
+  .menu-mobile{
     position: absolute;
     width: 24px;
     height: 24px;
-    left: 180px;
-    top: -3px;
+    left: 369px;
+    top: 18px;
+
+  } 
+
+
+
+    
+  .status-bar {
+    position: absolute;
+    height: 24px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+
+    background: #000000;
+
   }
 
-  .frame2{
+    
+
+  .frame-6{
     position: absolute;
-    width: 411px;
-    height: 731px;
-    left: 0px;
-    top: 60px;
+    width: 120px;
+    height: 16px;
+    left: 2.64px;
+    top: 4px;
   }
+
+
+  .charge{
+
+    position: absolute;
+    width: 9px;
+    height: 8px;
+    left: 60.86px;
+    top: 5.5px;
+  
+    background: #FFFFFF;
+  }
+
+    
+  .charge p{
+    position: absolute;
+    width: 25px;
+    height: 15px;
+    left: 29.86px;
+    top: 2.5px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+
+    color: #FFFFFF;
+  }
+
+
+
+  .vector-3{
+    position: absolute;
+    width: 5px;
+    height: 10px;
+    left: 19.86px;
+    top: 4.5px;
+
+    border: 1px solid #FCFCFC;
+  }
+
+  .navigation{
+    display: none;
+  }
+
+
+  .clock{
+    position: absolute;
+    width: 50px;
+    height: 15px;
+    left: calc(50% - 50px/2 + 1px);
+    top: -5px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+
+    color: #FFFFFF;
+  }
+
+
+  .transaction-form{
+    position: absolute;
+    width: 371px;
+    height: 195px;
+    left: 20px;
+    top: 85px;
+  }
+
+  .transaction-form h1{
+    display: none;
+  }
+
 
   .rectangle{
+    
+    position: absolute;
+    width: 400px;
+    height: 200px;
+    left: calc(50% - 400px/2);
+    top: -23px;
     border-color: transparent;
+  }
+
+
+
+  #dropdown{
+    position: absolute;
+    left: 3%;
+    right: 0%;
+    top: 17px;
+    bottom: 80.34%;
+
+  }
+
+    
+  #add-transaction{
+      
+    
+    position: absolute;
+    height: 3.72%;
+    left: 3.72%;
+    right: 84.59%;
+    top: 114.81%;
+    display: flex;
+    left: 15px;
+    background: #333333;
+    border-radius: 4px;
+    
+    
+  }
+
+  .input-medium1{
+    position: absolute;
+    left: 3%;
+    right: 0%;
+    top: 44.55%;
+    bottom: 53.91%;
+  }
+
+  .input-medium2 {
+    position: absolute;
+    left: 3.72%;
+    right: 3.72%;
+    top: 80.5%;
+    bottom: 21.51%;
+    
+  }
+
+  #add-transaction input{
+    /* or 157% */
+    
+  
+    background-color: #333333;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+  
+    
+  
+    color: #FFFFFF;
+    
+    
+  }
+
+  .division-line{
+
+    position: absolute;
+    width: 371px;
+    height: 0px;
+    left: 23px;
+    top: 347px;
+    
+    border: 1px solid #979797;
+
   }
 
   .account-statement{
     position: absolute;
-    width: 411px;
-    height: 381px;
-    left: -5px;
-    top: 360px;
-  
+    width: 371px;
+    height: 281px;
+    left: 20px;
+    top: 420px;
+
     background: #FFFFFF;
+
   }
-  
-  .account-statement h1{
-   
+
+
+
+  .table-frame{
     position: absolute;
-    width: 176px;
-    height: 20px;
-    left: 109px;
+    width: 371px;
+    height: 187px;
+    left: 0px;
     top: 0px;
+    display: table;
+    overflow-x: auto;
+    overflow-y : hidden;
+  }
+
+  .account-statement h1 {
+    position: absolute;
+    width: 175px;
+    height: 20px;
+    left: 110px;
+    top: -50px;
 
     font-family: Lato;
     font-style: normal;
@@ -613,26 +755,15 @@
 
     color: #000000;
   }
-  
-  .table-frame{
-  
-    position: absolute;
-    width: 371px;
-    height: 381px;
-    left: -15px;
-    top: 60px;
-    
-  }
 
   .account-statement table{
     position: absolute;
-    table-layout: fixed;
-    width: 371px;
-    height: 381px;
-    left: 30px;
-    top: 0px;
-    width: 100%;
+    width: 72px;
+    height: 22px;
+    left: -5px;
+    top: 15px;
   }
+
 
   .horizontal-line{
     width: 371px;
@@ -645,24 +776,4 @@
   .right-content{
     text-align: end;
   }
-
-  .transaction-form{
-    position: absolute;
-    width: 411px;
-    height: 60px;
-    left: 0px;
-    top: 144px;
-
-  }
-
-  #form-h1{
-    
-    position: absolute;
-    width: 150px;
-    height: 43px;
-    left: 120px;
-    top: 0px;
-  }
-
-
 }
