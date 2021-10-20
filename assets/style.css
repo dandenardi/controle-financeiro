@@ -11,6 +11,8 @@
 
 }
 
+
+
 .frame{
   position: absolute;
   width: 1100px;
@@ -32,10 +34,7 @@
 
 }
 
-.logo{
-  
-  border: 2px solid #333333;
-}
+
 .group h1{
  /* Controle financeiro */
 
@@ -53,7 +52,16 @@
 
 }
 
-.navigation{
+/*menu*/
+
+.menu{
+
+}
+
+.menu .menu-toggle{
+
+}
+.menu .navigation{
   position: absolute;
   width: 350px;
   height: 40px;
@@ -72,9 +80,6 @@
   display: none;
 }
 
-.menu-mobile{
-  display: none;
-}
 
 .line{
 
@@ -93,6 +98,10 @@
 
   
 
+}
+
+.menu-toggle{
+  display: none;
 }
 
 .frame2{
@@ -460,29 +469,97 @@
 
   .header{
 
-    position: absolute;
+    display: flex;
     width: 411px;
     height: 60px;
     left: 0px;
     top: 24px;
+    align-items: center;
+    justify-content: space-around;
+    
 
     background: #E0E0E0;
 
   }
+  /*Menu*/
+  
+  
 
-  .frame2{
-    position: absolute;
-    width: 411px;
-    height: 731px;
-    top: 0px;
-    left: 0px;
+  .menu{
+  
+    width: 24px;
+    height: 24px;
+
+  }
+
+  .menu .menu-toggle{
+    
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+
+  
+  
+  
+  .menu .navigation{
+    
+    display: none;
+    width: 350px;
+    height: 40px;
+    right: 0px;
+    top: 20px;
+    align-items: center;
+    justify-content: space-around;
+    
+  
+    background: #FFFFFF;
+  
+  }
+  .menu:hover .navigation{
+    
+    z-index: 1;
+    display: block;
+    width: 351px;
+    height: 1000px;
+    right: 0px;
+    top: 24px;
+    align-items: right;
+    justify-content: space-around;
+    
+  
+    background: #333333;
+  
+  }
+
+  .menu:hover .navigation a{
+       
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+
+    color: #FFFFFF;
+  }
+
+
+  .menu .menu-toggle::before{
+    content: '☰';
+  }
+  .menu:hover .menu-toggle::before{
+    content: 'x';
+    width: 16px;
+    height: 16px;
+    background-color: #FFFFFF;
   }
 
 
   .header-h1{
     /* Controle financeiro */
 
-    position: absolute;
     width: 176px;
     height: 43px;
     left: 129px;
@@ -504,26 +581,12 @@
 
 
   .logo{
-    position: absolute;
+
     width: 30px;
     height: 27.63px;
     left: 22px;
     top: 15px;
   }
-
-
-
-
-  .menu-mobile{
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    left: 369px;
-    top: 18px;
-
-  } 
-
-
 
     
   .status-bar {
@@ -591,11 +654,6 @@
     border: 1px solid #FCFCFC;
   }
 
-  .navigation{
-    display: none;
-  }
-
-
   .clock{
     position: absolute;
     width: 50px;
@@ -615,12 +673,19 @@
     color: #FFFFFF;
   }
 
+  .frame2{
+    display: flex;
+    width: 411px;
+    height: 731px;
+    top: 0px;
+    left: 0px;
+  }
 
   .transaction-form{
     position: absolute;
     width: 371px;
     height: 195px;
-    left: 20px;
+    left: 10px;
     top: 85px;
   }
 
@@ -629,15 +694,14 @@
   }
 
 
-  .rectangle{
+  /* .rectangle{
     
-    position: absolute;
     width: 400px;
     height: 200px;
     left: calc(50% - 400px/2);
     top: -23px;
-    border-color: transparent;
-  }
+    border-color: transparent; 
+  }*/
 
 
 
@@ -776,4 +840,348 @@
   .right-content{
     text-align: end;
   }
+}
+
+/* tablet portrait */
+
+
+@media screen and (min-width: 412px) and (max-width: 768px) and (orientation: portrait) {
+  
+  body{
+    position: relative;
+    width: 768px;
+    height: 1024px;
+    padding: 0;
+    margin: 0;
+
+    background: #FFFFFF;
+  }
+
+
+
+  .status-bar{
+    position: absolute;
+    height: 24px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+
+    background: #000000;
+
+  }
+
+  .header {
+    position: absolute;
+    width: 768px;
+    height: 60px;
+    left: 0px;
+    top: 24px;
+
+    background: #E0E0E0;
+
+  }
+
+
+
+  .logo{
+    position: absolute;
+    width: 30px;
+    height: 27.63px;
+    left: 22px;
+    top: 15px;
+    border: 2px solid #333333;
+
+  }
+
+  .navigation{
+    display: none;
+  }
+
+
+
+
+  .header-h1{
+    position: absolute;
+    width: 411px;
+    height: 43px;
+    left: 295px;
+    top: -4px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #333333;
+  }
+
+
+  .frame-6{
+    position: absolute;
+    width: 120px;
+    height: 16px;
+    left: 2.64px;
+    top: 4px;
+  }
+
+  .frame2{
+    position: absolute;
+    width: 768px;
+    left: 0px;
+    top: 0px;
+  }
+
+  .frame-8{
+    position: absolute;
+    width: 88px;
+    height: 18px;
+    right: 2.36px;
+    top: 2px;
+  
+  }
+
+
+  .charge{
+    position: absolute;
+    width: 25px;
+    height: 15px;
+    left: 29.86px;
+    top: 2.5px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+
+    color: #FFFFFF;
+
+  }
+
+
+  .clock{
+    position: absolute;
+    width: 50px;
+    height: 15px;
+    left: 350px;
+    top: -6px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+
+    color: #FFFFFF;
+
+  }
+
+
+
+  .transaction-form{
+    position: absolute;
+    width: 728px;
+    height: 189px;
+    left: 20px;
+    top: 104px;
+
+  }
+
+
+  .rectangle {
+    position: absolute;
+    width: 728px;
+    height: 189px;
+    left: calc(50% - 728px/2);
+    top: calc(50% - 189px/2);
+
+    background: #FFFFFF;
+    border: 1px solid #979797;
+    box-sizing: border-box;
+    border-radius: 4px;
+  }
+
+  .account-statement{
+    position: absolute;
+    width: 728px;
+    height: 281px;
+    left: 20px;
+    top: 316px;
+
+    background: #FFFFFF;
+  }
+
+  .account-statement h1{
+    position: absolute;
+    width: 175px;
+    height: 20px;
+    left: 277px;
+    top: 21px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+
+    /* or 122% */
+
+    color: #000000;
+
+
+  }
+
+  .account-statement table{
+    position: absolute;
+    top: 100px;
+    left: 15px;
+
+  }
+
+  td.left-content, th.left-content {
+    text-align: left;
+  }
+
+  td.right-content, th.right-content {
+    text-align: right;
+  }
+
+
+  
+
+  #form-h1{
+    position: absolute;
+    width: 174px;
+    height: 20px;
+    left: calc(50% - 174px/2);
+    top: calc(50% - 20px/2 - 64.5px);
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+
+    /* or 122% */
+    text-align: center;
+
+    color: #000000;
+  }
+  
+  #dropdown{
+    position: absolute;
+    left: 2.75%;
+    right: 76.65%;
+    top: 32.28%;
+    bottom: 37.57%;
+
+    width: 150px;
+    height: 57px;
+  }
+
+  #transactions{
+
+
+    position: absolute;
+    width: 150px;
+    height: 32px;
+    left: 0%;
+    right: 0%;
+    top: 25px;
+
+    background: #FFFFFF;
+    border: 1px solid #979797;
+    box-sizing: border-box;
+    border-radius: 4px;
+
+  }
+
+  .input-medium1{
+    position: absolute;
+    left: 26.1%;
+    right: 26.1%;
+    top: 32.28%;
+    bottom: 37.57%;
+
+    width: 348px;
+    height: 57px;
+
+
+  }
+
+  #merch-name{
+    position: absolute;
+    width: 348px;
+    height: 32px;
+    left: 0px;
+    right: 0px;
+    top: 24px;
+
+    background: #FFFFFF;
+    border: 1px solid #979797;
+    box-sizing: border-box;
+    border-radius: 4px;
+  }
+
+  .input-medium2{
+    position: absolute;
+    width: 150px;
+    height: 55px;
+
+    left: 76.65%;
+    right: 2.75%;
+    top: 32.28%;
+    bottom: 38.62%;
+  }
+
+  .input-medium2 input{
+    width: 150px;
+    height: 32px;
+
+  }
+
+  #add-transaction{
+    position: absolute;
+    width: 200px;
+    height: 33px;
+    left: 69.78%;
+    right: 2.75%;
+    top: 71.96%;
+    bottom: 10.58%;
+
+  }
+
+  #add-transaction input{
+    position: absolute;
+    width: 200px;
+    height: 33px;
+    
+  }
+
+  
+  .footer{
+    position: absolute;
+    width: 768px;
+    height: 8px;
+    left: 0px;
+    top: 1016px;
+
+    background: #333333;
+
+  }
+
+    
+
+
+
 }

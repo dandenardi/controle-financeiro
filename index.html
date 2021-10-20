@@ -32,52 +32,52 @@
       
       <img class="logo" src="../controle-financeiro/assets/ellipse13.png" alt="logo circulo quadrado triangulo pessoa">
       <h1 class="header-h1">Controle financeiro</h1>
-    
-      <div class="menu-mobile">
-        <img src="../controle-financeiro/assets/menu.png" alt="menu para dispositivo móvel">
+      <div class="menu">
+        <div class="menu-toggle"></div>
+            
+        <div class="navigation">
+          <a href="/limpar-dados">Limpar dados</a>
+          <img class="line" src="assets/line.png">
+          <a href="/cadastro-transacoes">Cadastro de transações</a>
+        </div>
+        
       </div>
-      
-      <div class="navigation">
-        <a href="/limpar-dados">Limpar dados</a>
-        <img class="line" src="assets/line.png">
-        <a href="/cadastro-transacoes">Cadastro de transações</a>
-      
       
     </div>
 
     
     <div class="frame2">
       <div class="transaction-form">
-        <div class="rectangle">
-          <h1 id="form-h1">Nova transação</h1>
+        
+        <h1 id="form-h1">Nova transação</h1>
+
+        <form action="/send.html">
+          
+          <div id="dropdown">
+            <label for="transaction-type">Tipo de transação</label>
+            <select name="transactions" id="transactions">
+              <option value="buy">Compra</option>
+              <option value="sell">Venda</optio>
+            </select>
+          </div>
+          
+          
+          <div class="input-medium1">
+            <label for="merch-name">Nome da mercadoria</label>
+            <input type="text" id="merch-name" name="merch-name" value="Input">
+          </div>
+          <div class="input-medium2">
+            <label for="merch-value">Valor:</label>
+            <input type="number" step="0.01" min="0" value="0.00" />   
+          </div>
+
+          <div id="add-transaction">
+            <input type="submit" value="Adicionar transação">
+          </div>
+          
+        </form>
   
-          <form action="/send.html">
-            
-            <div id="dropdown">
-              <label for="transaction-type">Tipo de transação</label>
-              <select name="transactions" id="transactions">
-                <option value="buy">Compra</option>
-                <option value="sell">Venda</optio>
-              </select>
-            </div>
-            
-            
-            <div class="input-medium1">
-              <label for="merch-name">Nome da mercadoria</label>
-              <input type="text" id="merch-name" name="merch-name" value="Input">
-            </div>
-            <div class="input-medium2">
-              <label for="merch-value">Valor:</label>
-              <input type="number" step="0.01" min="0" value="0.00" />   
-            </div>
-  
-            <div id="add-transaction">
-              <input type="submit" value="Adicionar transação">
-            </div>
-            
-          </form>
-  
-        </div>
+        
         
         
       </div>
