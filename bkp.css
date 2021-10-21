@@ -1,0 +1,221 @@
+#dropdown{
+  
+  
+  width: 370.2px;
+  height: 57px;
+  margin-top: -100px;
+  margin-left: 14.9px;
+
+}
+
+#transaction-type{
+  
+  width: 370.2px;
+  height: 22.22px;
+  margin-top: -80px;
+
+  
+
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+
+  /* or 157% */
+
+  color: #333333;
+
+}
+
+#transactions{
+  
+  height: 32px;
+  left: 0%;
+  right: 0%;
+  top: 25px;
+
+  width: 370.2px;
+  height: 32px;
+  top: 25px;
+  
+
+  background: #FFFFFF;
+  border: 1px solid #979797;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.input-medium1{
+
+  width: 370.2px;
+  height: 22.35px;
+  
+  left: 3.72%;
+  right: 3.72%;
+  top: 40.12%;
+  bottom: 43.31%;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+
+  /* or 157% */
+
+  color: #333333;
+
+}
+
+.input-medium1 label{
+  
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 60.78%;
+
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+
+  /* or 157% */
+
+  color: #333333;
+}
+
+.input-medium1 input{
+  
+  width: 370px;
+  height: 32px;
+  top: 24px;
+
+  
+ 
+  height: 32px;
+  left: 0px;
+  right: 0.2px;
+  top: 24px;
+
+  background: #FFFFFF;
+  border: 1px solid #979797;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.input-medium2{
+  
+  left: 3.72%;
+  right: 3.72%;
+  top: 62.5%;
+  bottom: 21.51%;
+}
+
+.input-medium2 label{
+  
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 60.78%;
+
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+
+  /* identical to box height, or 157% */
+
+  color: #333333;
+}
+
+.input-medium2 input{
+  width: 370px;
+  height: 32px;
+  top: 24px;
+  
+  
+  height: 32px;
+  left: 0px;
+  right: 0.2px;
+  
+
+  background: #FFFFFF;
+  border: 1px solid #979797;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+#add-transaction-btn{
+  
+
+  
+  height: 3.72%;
+  left: 3.72%;
+  right: 84.59%;
+  top: 5.81%;
+
+  width: 370.2px;
+  height: 33px;
+  top: 291px;
+  left: 14.9px;
+  
+  
+
+  background: #333333;
+  border-radius: 4px;
+
+
+}
+
+#add-transaction{
+  
+
+ 
+  height: 3.72%;
+  left: 3.72%;
+  right: 84.59%;
+  top: 5.81%;
+  display: flex;
+  width: 370.2px;
+  height: 33px;
+  top: 291px;
+  left: 14.9px;
+  
+  
+
+  background: #333333;
+  border-radius: 4px;
+
+
+}
+
+#add-transaction input{
+  /* or 157% */
+  display: block;
+  align-items: center;
+  text-align: center;
+  
+  width: 370.2px;
+  height: 32px;
+  top: 0.78px;
+
+  position: absolute;
+  height: 32px;
+  left: 0%;
+  right: 0%;
+  top: 0.78px;
+
+  background-color: #333333;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+
+ 
+
+  color: #FFFFFF;
+
+}
