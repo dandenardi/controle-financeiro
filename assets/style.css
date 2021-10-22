@@ -1027,8 +1027,409 @@ body{
 
   }
 
+
+}
+
+/*tablet landscape*/
+
+@media screen and (min-width: 412px) and (max-width: 1112px) and (orientation: landscape){
+
+  body{
+    width: 1112px;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* status bar */
+
+  .status-bar{
+    width: 100%;
+    height: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+  }
+
+
+  .frame-6{
+    
+    display: block;
+    width: 88px;
+    height: 18px;
+    margin-left: 20px;
     
 
+  }
+  .clock{
+    
+    width: 50px;
+    height: 15px;
+    
 
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+
+    color: #FFFFFF;
+  }
+
+  /*conjunto que inclui bluetooth e carregamento*/
+
+  .frame-8{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 120px;
+    height: 16px;
+    padding: 6px;
+
+   
+   
+  }
+
+
+  .charge{
+
+    
+    width: 9px;
+    height: 8px;
+    
+  
+    background: #FFFFFF;
+  }
+
+    
+  .frame-8 p{
+    
+    width: 25px;
+    height: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+   
+    color: #FFFFFF;
+  }
+  
+  .clock{
+    display: flex;
+  }
+  
+  .frame-8{
+    display: flex;
+    padding-right: 30px;
+  }
+  
+  
+  .header{
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 80px;
+
+    background: #E0E0E0;
+  
+  }
+  /*inclui logo e heading */
+  .group{
+    
+    width: 471px;
+    height: 43px;
+    left: 0px;
+    top: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 0px;
+  
+  
+  }
+  
+  .group .logo{
+    margin-left: 20px;
+  }
+  
+  
+  .group .header-h1{
+   /* Controle financeiro */
+  
+    width: 411px;
+    height: 43px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    
+  
+    color: #333333;
+  
+  }
+  
+  
+  /*menu*/
+  
+  .menu{
+    width: 350px;
+    height: 40px;
+    align-items: center;
+    padding-right: 20px;
+    
+  
+  }
+  .navigation{
+    
+    width: 340px;
+    height: 40px;
+    display: flex;
+    margin-right: 20px;
+    align-items: center;
+    justify-content: space-around;
+   
+    
+  
+    background: #FFFFFF;
+  
+  }
+  
+  
+  .line{
+  
+    border: 1px solid #979797;
+    align-self: middle;
+  }
+  
+  .navigation a{
+    text-decoration: none;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #333333;
+  
+    
+  
+  }
+  
+  .menu-toggle{
+    display: none;
+  }
+  
+  /*conteudo da aplicacao*/
+  
+  .frame2{
+    
+    width: 100%;
+    height: 755px;
+    margin-left: 0px;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: row;
+    
+  
+  }
+  
+  /*formulário de transações */
+  .transaction-form{
+  
+    
+    width: 400px;
+    height: 344px;
+    margin-top: 26px;
+    margin-left: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+   
+    border-style: solid;
+    border-width: 1px;
+    border-color: #979797;
+    border-radius: 4px;
+  
+    
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+  
+    /* or 157% */
+  
+    color: #333333;
+  
+  
+  }
+  
+  .transaction-form h1{
+    
+    width: 174px;
+    height: 20px;
+    margin-top: 20px;
+    margin-left: 50px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+  
+    /* or 122% */
+   
+  
+    color: #000000;
+  }
+  
+  
+  
+  .transaction-form form {
+    width: 400px;
+    height: 344px;
+    margin-left: 0px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+  
+  }
+  
+  #dropdown{
+    width: 370.2px;
+    height: 57px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 14.9px;
+  
+  }
+  /*o estilo do option tag nao acompanha o do dropdown */
+  #dropdown #transactions{
+    width: 370.2px;
+    height: 32px;
+    margin-top: 2.78px;
+    border-radius: 4px;
+  }
+  
+  
+  
+  .input-medium1, .input-medium2{
+    width: 370.2px;
+    height: 57px;
+    margin-left: 14.9px;
+    
+  }
+  
+  .input-medium1 input, .input-medium2 input{
+    width: 365px;
+    height: 30px;
+    margin-top: 2.78px;
+    border-radius: 4px;
+    border-width: 1px;
+  }
+  
+  #add-transaction{
+  
+    width: 370.2px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    margin-left: 14.9px;
+    
+  }
+  
+  #add-transaction input{
+    
+    width: 370.2px;
+    height: 33px;
+    background-color: #333333;
+    border-radius: 4px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    
+  
+    /* @btn-primary-color */
+    color: #FFFFFF;
+    
+  
+  }
+  
+  /*extrato de transacoes*/
+  .account-statement{
+    
+    width: 652px;
+    height: 281px;
+    margin-top: 26px;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  .account-statement h1{
+   
+   
+    width: 177px;
+    height: 20px;
+    left: 239px;
+    top: 21px;
+    
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    
+    /* or 122% */
+    
+    color: #000000;
+  }
+  
+  .account-statement table{
+  
+    width: 90%;
+    height: 100%;
+    margin-left: 40px;
+    margin-top: 20px;
+    table-layout: fixed;
+    
+  
+  }
+  
+  .left-content{
+    text-align: left;
+  }
+  
+  .right-content{
+    text-align: right;
+  }
+
+  .horizontal-line{
+    width: 100%;
+  }
+
+  .footer{
+    display: flex;
+    width: 100%;
+    height: 8px;
+    color: #333333;
+  }
 
 }
