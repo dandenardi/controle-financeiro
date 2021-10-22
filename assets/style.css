@@ -63,6 +63,10 @@ body{
 }
 
 
+.frame-8{
+  display: none;
+}
+
 
 /*menu*/
 
@@ -70,12 +74,13 @@ body{
   width: 350px;
   height: 40px;
   align-items: center;
+  padding-right: 180px;
   
 
 }
 .navigation{
   
-  width: 350px;
+  width: 340px;
   height: 40px;
   display: flex;
   margin-right: 200px;
@@ -88,10 +93,6 @@ body{
 
   background: #FFFFFF;
 
-}
-
-.frame-8{
-  display: none;
 }
 
 
@@ -139,7 +140,7 @@ body{
   
   width: 400px;
   height: 344px;
-  left: 0px;
+ 
   top: 31px;
   display: flex;
   flex-direction: column;
@@ -205,13 +206,15 @@ body{
   margin-left: 14.9px;
 
 }
-
+/*o estilo do option tag nao acompanha o do dropdown */
 #dropdown #transactions{
   width: 370.2px;
   height: 32px;
   margin-top: 2.78px;
   border-radius: 4px;
 }
+
+
 
 .input-medium1, .input-medium2{
   width: 370.2px;
@@ -313,7 +316,7 @@ body{
 @media screen and (max-width: 411px) {
   
   body{
-    position: relative;
+    
     width: 411px;
     height: 731px;
     margin: 0;
@@ -324,36 +327,95 @@ body{
   }
 
 
+  /* status bar */
 
-  .footer{
-    position: absolute;
-    width: 411px;
-    height: 8px;
-    left: 0px;
-    top: 723px;
-
-    background: #333333;
+  .status-bar{
+    width: 100%;
+    height: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
   }
 
 
-  .frame-8{
-    position: absolute;
+  .frame-6{
+    
+    display: block;
     width: 88px;
     height: 18px;
     right: 2.36px;
     top: 2px;
 
   }
+  .clock{
+    
+    width: 50px;
+    height: 15px;
+    
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+
+    color: #FFFFFF;
+  }
+
+  /*conjunto que inclui bluetooth e carregamento*/
+
+  .frame-8{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 120px;
+    height: 16px;
+    padding: 6px;
+
+   
+   
+  }
 
 
+  .charge{
 
+    
+    width: 9px;
+    height: 8px;
+    
+  
+    background: #FFFFFF;
+  }
+
+    
+  .frame-8 p{
+    
+    width: 25px;
+    height: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+   
+    color: #FFFFFF;
+  }
+
+  /* Header */
   .header{
 
     display: flex;
     width: 411px;
     height: 60px;
-    left: 0px;
-    top: 24px;
+    margin: 0px;
     align-items: center;
     justify-content: space-around;
     
@@ -361,28 +423,68 @@ body{
     background: #E0E0E0;
 
   }
+
+  /* agrupamento de controle financeiro e logo */
+  .group{
+    
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0px;
+    margin-left: -50px;
+
+  }
+
+  .group .header-h1{
+    /* Controle financeiro */
+
+    width: 176px;
+    height: 43px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    
+
+    color: #333333;
+
+  }
+
+  .group .logo{
+    margin: 0px;
+    width: 30px;
+    height: 27.63px;
+  
+  }
+  
   /*Menu*/
-  
-  
 
   .menu{
-  
+    
     width: 24px;
     height: 24px;
 
   }
 
+  .menu:hover .menu-toggle::before{
+    content: 'x';
+    width: 16px;
+    height: 16px;
+    background-color: #FFFFFF;
+  }
+
   .menu .menu-toggle{
     
+    content: '☰';
     display: block;
     width: 24px;
     height: 24px;
   }
 
   
-  
-  
-  .menu .navigation{
+  .navigation{
     
     display: none;
     width: 350px;
@@ -426,147 +528,27 @@ body{
   }
 
 
-  .menu .menu-toggle::before{
-    content: '☰';
-  }
-  .menu:hover .menu-toggle::before{
-    content: 'x';
-    width: 16px;
-    height: 16px;
-    background-color: #FFFFFF;
-  }
-
-
-  .header-h1{
-    /* Controle financeiro */
-
-    width: 176px;
-    height: 43px;
-    left: 129px;
-    top: -6px;
-
-    font-family: Lato;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-
-    color: #333333;
-
-  }
-
-
-
-  .logo{
-
-    width: 30px;
-    height: 27.63px;
-    left: 22px;
-    top: 15px;
-  }
-
-    
-  .status-bar {
-    position: absolute;
-    height: 24px;
-    left: 0px;
-    right: 0px;
-    top: 0px;
-
-    background: #000000;
-
-  }
-
-    
-
-  .frame-6{
-    position: absolute;
-    width: 120px;
-    height: 16px;
-    left: 2.64px;
-    top: 4px;
-  }
-
-
-  .charge{
-
-    position: absolute;
-    width: 9px;
-    height: 8px;
-    left: 60.86px;
-    top: 5.5px;
   
-    background: #FFFFFF;
-  }
 
-    
-  .charge p{
-    position: absolute;
-    width: 25px;
-    height: 15px;
-    left: 29.86px;
-    top: 2.5px;
-
-    font-family: Lato;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 14px;
-    /* identical to box height */
-    display: flex;
-    align-items: center;
-
-    color: #FFFFFF;
-  }
-
-
-
-  .vector-3{
-    position: absolute;
-    width: 5px;
-    height: 10px;
-    left: 19.86px;
-    top: 4.5px;
-
-    border: 1px solid #FCFCFC;
-  }
-
-  .clock{
-    position: absolute;
-    width: 50px;
-    height: 15px;
-    left: calc(50% - 50px/2 + 1px);
-    top: -5px;
-
-    font-family: Lato;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 14px;
-    /* identical to box height */
-    display: flex;
-    align-items: center;
-
-    color: #FFFFFF;
-  }
+  /* conteudo do aplicativo */
 
   .frame2{
     display: flex;
     width: 411px;
     height: 731px;
-    top: 0px;
-    left: 0px;
+    margin: 0px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
   }
 
   .transaction-form{
-    position: absolute;
+    
     width: 371px;
-    height: 195px;
+    height: 290px;
     left: 10px;
-    top: 85px;
+    margin-top: -90px;
+    border-style: none;
   }
 
   .transaction-form h1{
@@ -574,31 +556,14 @@ body{
   }
 
 
-  /* .rectangle{
-    
-    width: 400px;
-    height: 200px;
-    left: calc(50% - 400px/2);
-    top: -23px;
-    border-color: transparent; 
-  }*/
-
-
-
-  #dropdown{
-    position: absolute;
-    left: 3%;
-    right: 0%;
-    top: 17px;
-    bottom: 80.34%;
-
+  .dropdown-option{
+    width: 371px;
+    height: 32px;
   }
 
     
   #add-transaction{
-      
     
-    position: absolute;
     height: 3.72%;
     left: 3.72%;
     right: 84.59%;
@@ -612,7 +577,7 @@ body{
   }
 
   .input-medium1{
-    position: absolute;
+    
     left: 3%;
     right: 0%;
     top: 44.55%;
@@ -620,12 +585,16 @@ body{
   }
 
   .input-medium2 {
-    position: absolute;
+    
     left: 3.72%;
     right: 3.72%;
     top: 80.5%;
     bottom: 21.51%;
     
+  }
+
+  #add-transaction{
+    margin-top: 20px;
   }
 
   #add-transaction input{
@@ -648,42 +617,29 @@ body{
 
   .division-line{
 
-    position: absolute;
+    
     width: 371px;
     height: 0px;
     left: 23px;
-    top: 347px;
+    margin-top: -55px;
     
     border: 1px solid #979797;
 
   }
 
+  /*tabela de transacoes */
   .account-statement{
-    position: absolute;
+    
     width: 371px;
     height: 281px;
-    left: 20px;
-    top: 420px;
+    margin-top: -90px;
 
     background: #FFFFFF;
 
   }
 
-
-
-  .table-frame{
-    position: absolute;
-    width: 371px;
-    height: 187px;
-    left: 0px;
-    top: 0px;
-    display: table;
-    overflow-x: auto;
-    overflow-y : hidden;
-  }
-
   .account-statement h1 {
-    position: absolute;
+   
     width: 175px;
     height: 20px;
     left: 110px;
@@ -701,11 +657,10 @@ body{
   }
 
   .account-statement table{
-    position: absolute;
+   
     width: 72px;
     height: 22px;
-    left: -5px;
-    top: 15px;
+    margin: 0px;
   }
 
 
@@ -719,6 +674,18 @@ body{
 
   .right-content{
     text-align: end;
+  }
+
+  /* footer */
+
+  .footer{
+    
+    width: 411px;
+    height: 8px;
+    left: 0px;
+    top: 723px;
+
+    background: #333333;
   }
 }
 
