@@ -1,6 +1,10 @@
+
+/*Geral */
+
 body{
 
   font-family: 'Lato', sans-serif;
+
 
 }
 
@@ -15,40 +19,75 @@ body{
 
 }
 
-.menu{
-
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-
-}
 
 .logo-and-title{
 
-  width: 20%;
+  width: 30%;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-left: 9%;
+  margin-left: 2%;
+  
 }
 
-.navigation{
+.logo-and-title h1{
+
+  font-size: x-large;
+  font-weight: bold;
+  margin-left: 1%;
+
+}
+
+/* Menu */
+
+.menu{
+
+  width: 30%;
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  padding: 6px;
+  justify-content: space-around;
+  padding: 0.5%;
+
+}
+
+.menu-toggle{
+  
+  display: none;
+  
+}
+
+.menu-content{
+  
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  padding: 2%;
 
   background-color: #FFFFFF;
+  
 }
 
-.navigation a{
 
-  text-decoration: none;
-  color: #333333;
-  margin: 5px;
+
+li{
+  width: 100%;
+  margin: 2%;
 }
 
+.close-menu{
+
+  display: none;
+
+}
+
+.clean-data-item{
+  
+  border-right: 2px #979797 solid;
+
+}
 .app-body{
 
   margin-top: 5%;
@@ -61,13 +100,13 @@ body{
 
 .transaction-form{
 
-  width: 20%;
+  width: 30%;
   
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 2%;
   margin-right: 10%;
   
   border-style: solid;
@@ -75,6 +114,12 @@ body{
   border-color: #979797;
   border-radius: 4px;
 
+}
+
+.transaction-form h2{
+
+  font-size: x-large;
+  font-weight: bold;
 }
 
 .transaction-form form{
@@ -133,13 +178,13 @@ body{
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin-top: -10%;
   margin-left: 10%;
 }
 
-.account-statement h1{
+.account-statement h2{
 
   margin-bottom: 10%;
+  font-size: x-large;
 }
 
 .account-statement table{
@@ -182,7 +227,7 @@ tfoot .right-content{
   border-top: 1px double;
 }
 
-@media screen and (max-width: 411px) {
+@media (max-width: 768px) {
 
   .header{
 
@@ -194,21 +239,77 @@ tfoot .right-content{
     background-color: #E0E0E0;
 
   }
+  /* Menu */
+  .menu .menu-content{
 
-  .menu{
-
-    width: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-right: 2%;
+    display: none;
 
   }
+
+  .menu:hover .menu-content{
+    
+    position: absolute;
+    left: 21%;
+    top: -3%;
+    width: 80%;
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: baseline;
+    text-align: right;
+    color: #ffffff;
+    padding: 0;
+
+    font-size: larger;
+    background-color: #333333;
+    
+  }
+
+  .menu:hover .menu-content li{
+    
+    padding-top: 5%;
+    
+  }
+
+  .clean-data-item{
   
-  .menu-toggle{
+    border: none;
+  
+  }
+
+  .menu .close-menu{
+    display: flex;
+    align-self: flex-start;
+    padding: 5%;
+    font-size: large;
+  }
+
+  .menu:hover .menu-content li{
+    width: 95%;
+    margin-right: 20%;
+  }
+
+  .menu:hover .close-menu{
+    margin: 3%;
+  }
+  
+  .menu .menu-toggle{
+    display: flex;
     font-size: 200%;
     align-self: flex-end;
   }
+  
+  .menu .menu-toggle::before{
+    content:'≡';
+  }
+  
+  .menu:hover .menu-toggle::before{
+    content:'X';
+  }
+  
+
 
   .logo-and-title{
 
@@ -294,4 +395,109 @@ tfoot .right-content{
     margin-left: 0%;
     border-top: 1px solid #979797; 
   }
+}
+
+@media (min-width: 412px) and (max-width: 768px) {
+
+  .logo-and-title{
+
+    width: 60%;
+  }
+  
+  .app-body{
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .transaction-form{
+
+    width: 95%;
+    border: 1px solid #979797;
+    display: flex;
+    
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 10%;
+    margin-right: 0%;
+    
+ 
+
+  }
+
+  .transaction-form form{
+    
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3%;
+    
+    
+    
+  }
+
+  #dropdown{
+
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 2%;
+    
+
+  }
+
+  .merch-name-input{
+
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-left: 0%;
+  }
+
+  .merch-value-input{
+
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+  }
+
+
+  #add-transaction-button{
+
+    position: absolute;
+    top: 30%;
+    left: 65%;
+    margin: 2%;
+    width: 30%;
+    
+    background-color: #333333;
+    border-radius: 4px;
+  
+  }
+  
+  #add-transaction-button input{
+  
+    width: 100%;
+    background-color: #333333;
+    color: #ffffff;
+    border-radius: 4px;
+    
+  
+  }
+
+  .account-statement {
+
+    width: 95%;
+    margin-top: 15%;
+    border: none;
+  }
+
 }
