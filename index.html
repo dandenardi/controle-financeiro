@@ -39,29 +39,33 @@
         <h2>Nova transação</h2>
 
         <form action="/send.html">
-          
-          <div id="dropdown">
-            <label for="transaction-type">Tipo de transação</label>
-            <select name="transactions" id="transactions">
-              <option class="dropdown-option" value="buy">Compra</option>
-              <option class="dropdown-option" value="sell">Venda</optio>
-            </select>
-          </div>
-          
-          
-          <div class="merch-name-input">
-            <label for="merch-name">Nome da mercadoria</label>
-            <input type="text" id="merch-name" name="merch-name" value="Input">
-          </div>
-          <div class="merch-value-input">
-            <label for="merch-value">Valor</label>
-            <input type="number" step="0.01" min="0" value="0.00" />   
-          </div>
 
+          
+        <div id="dropdown">
+          <label for="transaction-type">Tipo de transação</label>
+          <select name="transactions" id="transactions">
+            <option class="dropdown-option" value="buy">Compra</option>
+            <option class="dropdown-option" value="sell">Venda</optio>
+          </select>
+        </div>
+        
+        
+        <div class="merch-name-input">
+          <label for="merch-name">Nome da mercadoria</label>
+          <input type="text" id="merch-name" name="merch-name" value="Input">
+        </div>
+        <div class="merch-value-input">
+          <label for="merch-value">Valor</label>
+          <input type="number" step="0.01" min="0" value="0.00" />   
+        </div>
+
+      
+          
+            
           <div id="add-transaction-button">
             <input type="submit" value="Adicionar transação">
           </div>
-          
+        
         </form>
   
         

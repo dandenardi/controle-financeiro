@@ -273,6 +273,12 @@ tfoot .right-content{
     
   }
 
+  .menu-content li:hover{
+    
+    background-color: #979797;
+    cursor: pointer;
+  }
+
   .clean-data-item{
   
     border: none;
@@ -416,14 +422,14 @@ tfoot .right-content{
 
   .transaction-form{
 
-    width: 95%;
+    width: 100%;
     border: 1px solid #979797;
     display: flex;
     
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    padding-bottom: 10%;
+    padding-bottom: 0;
     margin-right: 0%;
     
  
@@ -435,19 +441,15 @@ tfoot .right-content{
     width: 100%;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: right;
     padding: 3%;
-    
-    
     
   }
 
   #dropdown{
 
-    display: flex;
-    flex-direction: column;
     width: 30%;
     margin: 2%;
     
@@ -456,31 +458,26 @@ tfoot .right-content{
 
   .merch-name-input{
 
-    display: flex;
-    flex-direction: column;
-    width: 40%;
+    width: 35%;
     margin-left: 0%;
   }
 
   .merch-value-input{
 
-    display: flex;
-    flex-direction: column;
-    width: 30%;
+    width: 25%;
   }
 
 
   #add-transaction-button{
 
-    position: absolute;
-    top: 30%;
-    left: 65%;
+    display: flex;
     margin: 2%;
-    width: 30%;
+    width: 35%;
     
     background-color: #333333;
     border-radius: 4px;
-  
+    align-self: flex-end;
+    justify-content: right;
   }
   
   #add-transaction-button input{
@@ -489,7 +486,6 @@ tfoot .right-content{
     background-color: #333333;
     color: #ffffff;
     border-radius: 4px;
-    
   
   }
 
