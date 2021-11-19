@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-    <link rel="stylesheet" href="../controle-financeiro/assets/style.css"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="UTF-8"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    
+    <link rel="stylesheet" href="../controle-financeiro/assets/css/style.css"/>
     <title>Controle Financeiro</title>
   </head>
   <body>
@@ -16,7 +15,7 @@
     </div>
     <div class="header">
       <div class="logo-and-title">
-        <img class="logo" src="../controle-financeiro/assets/ellipse13.png" alt="logo circulo quadrado triangulo pessoa">
+        <img class="logo" src="../controle-financeiro/assets/img/ellipse13.png" alt="logo circulo quadrado triangulo pessoa">
         <h1>Controle financeiro</h1>
       </div>
       
@@ -46,7 +45,7 @@
           
         <div id="dropdown">
           <label for="transaction-type">Tipo de transação</label>
-          <select name="transactions" id="transactions">
+          <select name="transactions" id="transactions" required>
             <option class="dropdown-option" value="buy">Compra</option>
             <option class="dropdown-option" value="sell">Venda</optio>
           </select>
@@ -113,5 +112,7 @@
     </div>
     <div class="footer"></div>
     
+    <script src="../controle-financeiro/assets/js/index.js"></script>
+
   </body>
 </html>
