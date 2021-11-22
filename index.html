@@ -24,7 +24,7 @@
         <div class="menu-content">
           <ul>
             <li class="close-menu">X</li>
-            <li class="clean-data-item">Limpar dados</li>
+            <li class="clean-data-item" onclick="cleanData(transactions)">Limpar dados</li>
             <li>Cadastro de transações</li>
             
           </ul>
@@ -40,25 +40,25 @@
         
         <h2>Nova transação</h2>
 
-        <form action="/send.html">
+        <form class="form" onsubmit="handleExchange(event)">
 
           
         <div id="dropdown">
           <label for="transaction-type">Tipo de transação</label>
-          <select name="transactions" id="transactions" required>
-            <option class="dropdown-option" value="buy">Compra</option>
-            <option class="dropdown-option" value="sell">Venda</optio>
+          <select name="transactions" id="transaction-type">
+            <option class="dropdown-option" value="compra">Compra</option>
+            <option class="dropdown-option" value="venda">Venda</optio>
           </select>
         </div>
         
         
         <div class="merch-name-input">
           <label for="merch-name">Nome da mercadoria</label>
-          <input type="text" id="merch-name" name="merch-name" value="Input">
+          <input type="text" id="merch-name" name="merch-name" required>
         </div>
         <div class="merch-value-input">
           <label for="merch-value">Valor</label>
-          <input type="number" step="0.01" min="0" value="0.00" />   
+          <input type="text" id="merch-value" required/>   
         </div>
 
       
@@ -75,36 +75,27 @@
         
       
       <div class="account-statement">
-        <h2>Extrato de transações</h2>
         
-        <table> 
-          <tr id="head">
-            <th class="left-content">Mercadoria</th>
-            <th class="right-content">Valor</th>
-            
-          </tr>
+        <h2></h2>
 
-          <tr>
-            <td class="left-content">+ Lorem ipsum dolor sit amet consectetur</td>
-            <td class="right-content">R$ 12.999,99</td>
+        <table class="table" onload="showTransactions">
           
-          </tr>
-          
-          <tr>  
-            <td class="left-content">- Quis nostrud exercitation</td>
-            <td class="right-content">R$ 99,99</td>
-          </tr>
-          
-          <tr>
-            <td class="left-content">+ Lorem ipsum </td>
-            <td class="right-content">R$ 9,99</td>
-          </tr>
-          
-          <tr>
-            <td class="left-content">Total </td>
-            <td class="right-content">R$ 12.909,99</td>
-          </tr>
-          
+          <thead>
+            <tr>
+              <td>
+                  Mercadoria
+              </td>
+              <td>
+                  Valor
+              </td>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+
+              </td>
+            </tr>
+          </tbody>
         </table>
   
       </div>

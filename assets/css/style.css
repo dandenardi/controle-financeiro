@@ -98,6 +98,7 @@ li{
   
   border-right: 2px #979797 solid;
   margin: auto;
+  cursor: pointer;
 
 }
 
@@ -161,7 +162,7 @@ li{
 
 }
 
-#transactions{
+#transaction-type{
   border-radius: 4px;
   padding: 2%;
   width: 100%;
