@@ -24,7 +24,7 @@
         <div class="menu-content">
           <ul>
             <li class="close-menu">X</li>
-            <li class="clean-data-item" onclick="cleanData(transactions)">Limpar dados</li>
+            <li class="clean-data-item" onclick="cleanData()">Limpar dados</li>
             <li>Cadastro de transações</li>
             
           </ul>
@@ -58,7 +58,7 @@
         </div>
         <div class="merch-value-input">
           <label for="merch-value">Valor</label>
-          <input type="text" id="merch-value" required/>   
+          <input type="text" id="merch-value" onkeypress="validateFields(event)" onfocus="this.value = ''" required/>   
         </div>
 
       
@@ -77,25 +77,17 @@
       <div class="account-statement">
         
         <h2></h2>
-
-        <table class="table" onload="showTransactions">
-          
+        
+        <table class="transactions">
           <thead>
-            <tr>
-              <td>
-                  Mercadoria
-              </td>
-              <td>
-                  Valor
-              </td>
+
           </thead>
           <tbody>
-            <tr>
-              <td>
 
-              </td>
-            </tr>
           </tbody>
+          <tfoot>
+
+          </tfoot>
         </table>
   
       </div>
