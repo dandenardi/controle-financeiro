@@ -16,13 +16,12 @@ function handleStorage(){
 function handleExchange(e){
     //Ao inserir transacao salvar em local storage (feito!)
     e.preventDefault();
-
     var transactions = handleStorage();
 
     transactions.push({
         
         name: e.target.elements['merch-name'].value,
-        value: e.target.elements['merch-value'].value,
+        value: e.target['merch-value'].value,
         kind: e.target.elements['transaction-type'].value,
     });
     
@@ -37,17 +36,18 @@ function handleExchange(e){
     //atualiza a tabela com todas as transacoes
 }
 
-
 //Criar um extrato das transacoes incluidas na ordem que foram inseridas (feito!)
 function showTransactions() {
 
     var rawTransactions = handleStorage();
-    var transactions = rawTransactions.reverse()
+    var transactions = rawTransactions.reverse();
+    var balance = calculateBalance(transactions);
 
     if (!transactions === []){
-        document.querySelector('.account-statement>h2').innerHTML = "Não existem transações cadastradas";    
+        document.getElementById('statementTitle').innerHTML = "Não existem transações cadastradas";    
     }else{
         //apresenta as transacoes
+        document.getElementById('statementTitle').innerHTML = "Extrato de Transações";
         document.querySelector('.transactions>thead').innerHTML =
         //desenha só o head
         `<tr>
@@ -85,19 +85,28 @@ function showTransactions() {
                 
             </tr>`
         }
-        
+        var balanceId = document.getElementById('balance');
+        //var balanceStatus = document.getElementById('balancestatus').innerHTML;
+        if(balance < 0){
+            balanceId.style.color = 'red';
+            //balanceStatus = 'Prejuizo!';
+        }else{
+            balanceId.style.color = 'blue';
+            //balanceStatus = 'Lucro!';
+        }
+
         document.querySelector('.transactions>tfoot').innerHTML =
         //desenha o rodape que consiste no saldo
         `<tfoot>
                 <tr>
-                    <td>
+                    <td id="balancestatus">
                         
                     </td>
                     <td>
                         Total
                     </td>
                     <td>
-                        ${calculateBalance(transactions)}
+                        ${Math.abs(balance)}
                     </td>
                 </tr>
         </tfoot>`;
@@ -114,52 +123,65 @@ function calculateBalance(transactions){
     //funcao que calcula o saldo
     
     var balance = 0;
+    
     for (var transaction in transactions){
+        transactions[transaction].value = (transactions[transaction].value).replace(',','.');
+        //remove sinais
+        console.log(transactions[transaction].value);
+        transactions[transaction].value = parseFloat(transactions[transaction].value);
+        //converte para numero real
+        console.log(transactions[transaction].value);
+        
+
         if (transactions[transaction].kind == 'compra'){
-            transactions[transaction].value = `-${transactions[transaction].value}`;
-            //caso seja compra, acrescenta negativo
+            balance -= transactions[transaction].value;
+            //caso seja compra, subtrai
+        }else{
+            balance += transactions[transaction].value;
         }
-        fValue = parseFloat(transactions[transaction].value);
-        balance += fValue;
+
     }
+    
     console.log(balance);
     return(balance);
 
 }
 //validacao de formulario
-function validateFields(e){
-    
+
+
+ function validateFields(e){
+    //validacoes funcionam, porem o usuario so consegue colocar centavos mediante ponto. Virgula faz a funcao retornar NAN
     e.preventDefault();
-    var valuePattern = /[0-9]/g; 
-
-
-    if((valuePattern).test(e.key)){
-        //se o valor digitado for igual aos permitidos (numeros) a informacao fica, senao nem eh inserida
+    var valuePattern = /[0-9.,]/g; 
+    
+    if (valuePattern.test(e.key)){
         e.target.value += e.key;
-    
+        /* if (e.key == ','){
+            (e.key).replace(',','.');
+        } */
+        //tentei fazer com que a virgula fosse substituida pelo ponto logo quando o usuario inserisse. Nao funcionou...
     }
-    var validatedValue = e.target.value;
-    
-    return validatedValue;
+
+    formatedNumber = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(e.target.value);
+    formatedNumber = formatedNumber.replace(',', '.');
+    console.log(formatedNumber);
+
+} 
+
+function toBrCurrency(e){
+    //funcao funciona bem, mas tem o mesmo problema...
+    var valueWithComma = e.target.value;
+    newValue = valueWithComma.replace(',', '.');
+    var newValue = parseFloat(e.target.value);
+
+    var convertedValue = newValue.toLocaleString('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+
+    e.target.value = convertedValue;
+    return e.target.value;
 }
-
-function toBrCurrency(insertedValue){
-
-    var newValue = parseFloat(insertedValue);
-    var format = { minimumFractionDigits: 2, style: 'currency', currency: 'BRL'};
-    
-    var convertedValue = newValue.toLocaleString('pt-BR', format);
-    //merch-value deveria estar com o valor convertido (?)
-    
-    //!nao consigo apresentar este valor de volta
-    
-    console.log(convertedValue);
-    //aparece corretamente em console.log
-    return convertedValue;
-    
-}
-
-
 
 //Acao limpar dados (onclick) deve apresentar mensagem de confirmacao (feito!),
 //apagar informacoes e atualizar a lista (feito!)
@@ -173,6 +195,43 @@ function cleanData(){
     };
 
     location.reload();
+}
+
+//Se string, converte para numero Real ou se numero real converte para formato BRL
+function convertNumber(variable){
+
+    var typeOfVariable = typeof variable;
+    var convertedVariable;
+
+    //conve
+    if (typeOfVariable == 'string'){
+        
+        var variableWithoutDot = variable.replace('.','');
+        var variableClean = variableWithoutDot.replace(',','.');
+        convertedVariable = parseFloat(variableClean);
+
+    }else{
+        //neste caso a entrada eh um numero tipo float
+        convertedVariable = variable.toLocaleString('pt-BR');
+    }
+    return convertedVariable;
+}
+
+function setStyleOfBalance(balance){
+    
+    var balanceSelector = document.getElementsByClassName('.balance');
+    //var balanceProperties = getComputedStyle(balanceSelector);
+    
+    if(balance < 0) {
+         //Esta ocorrendo prejuizo
+      balanceSelector.style.color = ('red');
+         return;
+
+    }if(balance > 0){
+        //Esta ocorrendo lucro
+        balanceSelector.style.color = ('green');
+        return;
+    }
 }
 
 showTransactions();

@@ -58,7 +58,7 @@
         </div>
         <div class="merch-value-input">
           <label for="merch-value">Valor</label>
-          <input type="text" id="merch-value" onkeypress="validateFields(event)" onfocus="this.value = ''" required/>   
+          <input type="text" id="merch-value"  onkeypress="validateFields(event)" onblur = "toBrCurrency(event)" onfocus="this.value = ''" placeholder = "R$" required />   
         </div>
 
       
@@ -76,7 +76,7 @@
       
       <div class="account-statement">
         
-        <h2></h2>
+        <h2 id="statementTitle"></h2>
         
         <table class="transactions">
           <thead>
@@ -85,7 +85,7 @@
           <tbody>
 
           </tbody>
-          <tfoot>
+          <tfoot  id="balance">
 
           </tfoot>
         </table>

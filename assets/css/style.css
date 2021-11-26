@@ -239,6 +239,12 @@ li{
   padding: 2%;
   
 }
+.balance{
+  color: blue;
+  --loss: #be0d0d;
+  --profit: #417411;
+
+}
 
 .left-content{
   text-align: left;
