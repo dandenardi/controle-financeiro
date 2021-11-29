@@ -40,10 +40,16 @@ function handleExchange(e){
 function showTransactions() {
 
     var rawTransactions = handleStorage();
+    var isEmpty = rawTransactions.length == 0;
     var transactions = rawTransactions.reverse();
+    console.log(transactions);
     var balance = calculateBalance(transactions);
+    var isLoss = (balance < 0);
+    var balanceWithoutSignal = Math.abs(balance);
+    var balanceInBrl = convertNumber(balanceWithoutSignal);
+    
 
-    if (!transactions === []){
+    if (isEmpty){
         document.getElementById('statementTitle').innerHTML = "Não existem transações cadastradas";    
     }else{
         //apresenta as transacoes
@@ -100,13 +106,13 @@ function showTransactions() {
         `<tfoot>
                 <tr>
                     <td id="balancestatus">
-                        
+                        ${isLoss ? '-' : '+'}
                     </td>
                     <td>
                         Total
                     </td>
                     <td>
-                        ${Math.abs(balance)}
+                        ${balanceInBrl}
                     </td>
                 </tr>
         </tfoot>`;
@@ -126,11 +132,13 @@ function calculateBalance(transactions){
     
     for (var transaction in transactions){
         transactions[transaction].value = (transactions[transaction].value).replace(',','.');
-        //remove sinais
+        //substitui ',' por '.' (padrao britanico/americano)
+        transactions[transaction].value = (transactions[transaction].value).replace('.','');
+        //substitui '.' por '' (padrao brasileiro inclui . no milhar que e considerado separador de decimal no britanico/americano)
         console.log(transactions[transaction].value);
-        transactions[transaction].value = parseFloat(transactions[transaction].value);
+        transactions[transaction].value = parseFloat(transactions[transaction].value).toFixed(2);
+        console.log(transactions[transaction].value);
         //converte para numero real
-        console.log(transactions[transaction].value);
         
 
         if (transactions[transaction].kind == 'compra'){
@@ -160,10 +168,11 @@ function calculateBalance(transactions){
             (e.key).replace(',','.');
         } */
         //tentei fazer com que a virgula fosse substituida pelo ponto logo quando o usuario inserisse. Nao funcionou...
+        //o ideal e que o usuario nao possa incluir pontos ou virgulas e que isso seja adicionado automaticamente
+        var formatedNumber = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(e.target.value);
     }
 
-    formatedNumber = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(e.target.value);
-    formatedNumber = formatedNumber.replace(',', '.');
+    
     console.log(formatedNumber);
 
 } 
@@ -208,12 +217,13 @@ function convertNumber(variable){
         
         var variableWithoutDot = variable.replace('.','');
         var variableClean = variableWithoutDot.replace(',','.');
-        convertedVariable = parseFloat(variableClean);
+        convertedVariable = parseFloat(variableClean).toFixed(2);
 
     }else{
         //neste caso a entrada eh um numero tipo float
         convertedVariable = variable.toLocaleString('pt-BR');
     }
+    
     return convertedVariable;
 }
 
@@ -235,3 +245,4 @@ function setStyleOfBalance(balance){
 }
 
 showTransactions();
+

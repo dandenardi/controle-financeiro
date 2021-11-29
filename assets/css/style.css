@@ -68,13 +68,14 @@ body{
 
 .menu-content ul{
   
-  width: 100%;
+  width: 85%;
   list-style: none;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   text-align: center;
-  padding: 2%;
+  padding: 4px;
+  margin: 2px 0px 2px 0px;
 
   background-color: #FFFFFF;
   
@@ -84,8 +85,8 @@ body{
 
 li{
   width: 100%;
-  margin: 2%;
-  padding: 1%;
+  margin: 4px;
+  padding: 4px;
 }
 
 .close-menu{
@@ -246,10 +247,13 @@ li{
 
 }
 
-.left-content{
-  text-align: left;
-  border-top: 1px solid;
+table {
+  text-align: center;
   
+}
+
+table thead{
+    font-weight: bold;
 }
 
 .right-content {
@@ -257,14 +261,17 @@ li{
   border-top: 1px solid;
   
 }
+thead tr td{
+  border-bottom: 1px black solid;
+}
 
-tfoot .left-content{
-  border-top: 1px double;
+tfoot tr td{
+  border-top: 1px black solid;
 }
 
 
 tfoot .right-content{
-  border-top: 1px double;
+  border: 1px double;
 }
 
 @media screen and (max-width: 478px){
