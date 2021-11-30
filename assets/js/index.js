@@ -57,13 +57,13 @@ function showTransactions() {
         document.querySelector('.transactions>thead').innerHTML =
         //desenha só o head
         `<tr>
-            <td>
+            <td class='signal'>
 
             </td>
-            <td>
+            <td class="left-content">
                 Mercadoria
             </td>
-            <td>
+            <td class="right-content">
                 Valor
             </td>
         </tr>`
@@ -79,13 +79,13 @@ function showTransactions() {
             //desenha cada transacao
         
             `<tr>
-                <td>
+                <td class='signal'>
                     ${tipo}
                 </td>    
-                <td>
+                <td class="left-content">
                     ${transactions[transaction].name}
                 </td>
-                <td>
+                <td class="right-content">
                     ${transactions[transaction].value}
                 </td>
                 
@@ -105,14 +105,15 @@ function showTransactions() {
         //desenha o rodape que consiste no saldo
         `<tfoot>
                 <tr>
-                    <td id="balancestatus">
+                    <td>
                         ${isLoss ? '-' : '+'}
                     </td>
                     <td>
                         Total
                     </td>
-                    <td>
+                    <td class='right-content' class='signal'>
                         ${balanceInBrl}
+                        ${isLoss ? '<small>(prejuízo)</small>' : '<small>(Lucro)</small>'}
                     </td>
                 </tr>
         </tfoot>`;
@@ -170,15 +171,13 @@ function calculateBalance(transactions){
         //tentei fazer com que a virgula fosse substituida pelo ponto logo quando o usuario inserisse. Nao funcionou...
         //o ideal e que o usuario nao possa incluir pontos ou virgulas e que isso seja adicionado automaticamente
         var formatedNumber = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(e.target.value);
+        
     }
-
     
-    console.log(formatedNumber);
-
 } 
 
 function toBrCurrency(e){
-    //funcao funciona bem, mas tem o mesmo problema...
+    //funcao funciona bem, mas tem o mesmo problema (nao identifica virgula como separador de decimal)...
     var valueWithComma = e.target.value;
     newValue = valueWithComma.replace(',', '.');
     var newValue = parseFloat(e.target.value);

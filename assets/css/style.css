@@ -228,17 +228,11 @@ li{
   table-layout: fixed;
   border-spacing: 0px;
   
-  
-}
-
-.account-statement table th{
-  border: none;
 }
 
 .account-statement table td{
-
   padding: 2%;
-  
+  border-bottom: 1px black solid;
 }
 .balance{
   color: blue;
@@ -247,9 +241,8 @@ li{
 
 }
 
-table {
-  text-align: center;
-  
+.signal {
+  width: 15px;
 }
 
 table thead{
@@ -258,20 +251,19 @@ table thead{
 
 .right-content {
   text-align: right;
-  border-top: 1px solid;
+  
+}
+.left-content {
+  text-align: left;
   
 }
 thead tr td{
   border-bottom: 1px black solid;
 }
 
-tfoot tr td{
+.account-statement tfoot tr td{
   border-top: 1px black solid;
-}
-
-
-tfoot .right-content{
-  border: 1px double;
+  border-bottom: none;
 }
 
 @media screen and (max-width: 478px){
