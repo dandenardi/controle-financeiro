@@ -217,8 +217,8 @@ li{
 }
 
 .account-statement h2{
-
-  margin-bottom: 10%;
+  margin-top: 10%;
+  margin-bottom: 7%;
   font-size: x-large;
 }
 
@@ -234,11 +234,10 @@ li{
   padding: 2%;
   border-bottom: 1px black solid;
 }
-.balance{
-  color: blue;
-  --loss: #be0d0d;
-  --profit: #417411;
+.account-statement .indicator{
 
+  border: none;
+  text-align: right;
 }
 
 .signal {

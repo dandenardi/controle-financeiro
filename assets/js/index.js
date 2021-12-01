@@ -1,4 +1,6 @@
 //funcao que fica responsavel por converter os dados obtidos de localStorage
+
+
 function handleStorage(){
     var transactionsRaw = localStorage.getItem('transactions'); //pegando o objeto de itens do localstorage de forma crua (string)
     if (transactionsRaw != null){
@@ -30,8 +32,7 @@ function handleExchange(e){
     e.target.elements['merch-name'].value = '';
     e.target.elements['merch-value'].value = '';
 
-
-    window.location.reload();
+    showTransactions();
     return false;
     //atualiza a tabela com todas as transacoes
 }
@@ -45,8 +46,7 @@ function showTransactions() {
     console.log(transactions);
     var balance = calculateBalance(transactions);
     var isLoss = (balance < 0);
-    var balanceWithoutSignal = Math.abs(balance);
-    var balanceInBrl = convertNumber(balanceWithoutSignal);
+    var balanceInBrl = convertNumber(balance);
     
 
     if (isEmpty){
@@ -68,6 +68,8 @@ function showTransactions() {
             </td>
         </tr>`
 
+        cleanTable();
+        //limpa a tabela para ser redesenhada
         for (var transaction in transactions){
 
             if( transactions[transaction].kind == 'compra') {
@@ -91,16 +93,7 @@ function showTransactions() {
                 
             </tr>`
         }
-        var balanceId = document.getElementById('balance');
-        //var balanceStatus = document.getElementById('balancestatus').innerHTML;
-        if(balance < 0){
-            balanceId.style.color = 'red';
-            //balanceStatus = 'Prejuizo!';
-        }else{
-            balanceId.style.color = 'blue';
-            //balanceStatus = 'Lucro!';
-        }
-
+        
         document.querySelector('.transactions>tfoot').innerHTML =
         //desenha o rodape que consiste no saldo
         `<tfoot>
@@ -113,8 +106,12 @@ function showTransactions() {
                     </td>
                     <td class='right-content' class='signal'>
                         ${balanceInBrl}
-                        ${isLoss ? '<small>(prejuízo)</small>' : '<small>(Lucro)</small>'}
                     </td>
+                </tr>
+                <tr>
+                    <td class="indicator"></td>
+                    <td class="indicator"></td>
+                    <td class="indicator">${isLoss ? '<small>(prejuízo)</small>' : '<small>(Lucro)</small>'}</td>
                 </tr>
         </tfoot>`;
     
@@ -122,26 +119,58 @@ function showTransactions() {
     
     //Saldo final com destaque para lucro ou prejuizo
     //atualizar a lista com extrato ja com o calculo atualizado (feito!)
-    handleStorage();
+    
 };
-   
+
+function cleanTable(){
+    //limpa a tabela para ser redesenhada
+    var transactions = handleStorage(); 
+    
+    for (var transaction in transactions){
+
+        if( transactions[transaction].kind == 'compra') {
+            var tipo = '-';
+        }else{
+            var tipo = '+';
+        }
+        document.querySelector('.transactions>tbody').innerHTML += '';
+        //desenha cada transacao
+    
+    }
+}
+
+function editTransactionsValue(){
+    var transactions = handleStorage();
+    
+
+    for (var transaction in transactions){
+        var transactionValue = transactions[transaction].value;
+
+        transactionValue = transactionValue.replace('.','');
+        transactionValue = transactionValue.replace(',','.');
+
+        transactionValue = parseFloat(transactionValue);
+        transactions[transaction].value = transactionValue;
+
+    }
+}   
    
 function calculateBalance(transactions){
     //funcao que calcula o saldo
     
+    var transactions = handleStorage();
+
     var balance = 0;
     
     for (var transaction in transactions){
-        transactions[transaction].value = (transactions[transaction].value).replace(',','.');
-        //substitui ',' por '.' (padrao britanico/americano)
-        transactions[transaction].value = (transactions[transaction].value).replace('.','');
-        //substitui '.' por '' (padrao brasileiro inclui . no milhar que e considerado separador de decimal no britanico/americano)
-        console.log(transactions[transaction].value);
-        transactions[transaction].value = parseFloat(transactions[transaction].value).toFixed(2);
-        console.log(transactions[transaction].value);
-        //converte para numero real
+        var transactionValue = transactions[transaction].value;
         
+        transactionValue = transactionValue.replaceAll('.','');
+        transactionValue = transactionValue.replaceAll(',','.');
 
+        transactionValue = parseFloat(transactionValue);
+        transactions[transaction].value = transactionValue;
+        console.log(transactions[transaction].value);
         if (transactions[transaction].kind == 'compra'){
             balance -= transactions[transaction].value;
             //caso seja compra, subtrai
@@ -161,34 +190,27 @@ function calculateBalance(transactions){
  function validateFields(e){
     //validacoes funcionam, porem o usuario so consegue colocar centavos mediante ponto. Virgula faz a funcao retornar NAN
     e.preventDefault();
-    var valuePattern = /[0-9.,]/g; 
-    
-    if (valuePattern.test(e.key)){
+    var valuePattern = /[0-9,.]/g; 
+    var userNumber = e.target.value;
+      if (valuePattern.test(e.key)){
+        //so aceita numeros, ponto e virgula
         e.target.value += e.key;
-        /* if (e.key == ','){
-            (e.key).replace(',','.');
-        } */
-        //tentei fazer com que a virgula fosse substituida pelo ponto logo quando o usuario inserisse. Nao funcionou...
         //o ideal e que o usuario nao possa incluir pontos ou virgulas e que isso seja adicionado automaticamente
-        var formatedNumber = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(e.target.value);
-        
     }
-    
-} 
+
+}
 
 function toBrCurrency(e){
     //funcao funciona bem, mas tem o mesmo problema (nao identifica virgula como separador de decimal)...
-    var valueWithComma = e.target.value;
-    newValue = valueWithComma.replace(',', '.');
-    var newValue = parseFloat(e.target.value);
-
-    var convertedValue = newValue.toLocaleString('pt-BR', {
+    var number = e.target.value;
+    number = parseFloat(number);
+    convertedValue = number.toLocaleString('pt-BR', {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
     });
-
     e.target.value = convertedValue;
-    return e.target.value;
+
+    return convertedValue;
 }
 
 //Acao limpar dados (onclick) deve apresentar mensagem de confirmacao (feito!),
@@ -214,9 +236,13 @@ function convertNumber(variable){
     //conve
     if (typeOfVariable == 'string'){
         
-        var variableWithoutDot = variable.replace('.','');
-        var variableClean = variableWithoutDot.replace(',','.');
-        convertedVariable = parseFloat(variableClean).toFixed(2);
+        var variableWithoutDot = variable.replaceAll('.','');
+        var variableClean = variableWithoutDot.replaceAll(',','.');
+        var variableInFloat = parseFloat(variableClean);
+        console.log(typeof variableInFloat);
+        var variableLimited = (variableInFloat).toFixed(2);
+        variableInFloat = parseFloat(variableLimited);
+        convertedVariable = variableInFloat;
 
     }else{
         //neste caso a entrada eh um numero tipo float
@@ -226,22 +252,6 @@ function convertNumber(variable){
     return convertedVariable;
 }
 
-function setStyleOfBalance(balance){
-    
-    var balanceSelector = document.getElementsByClassName('.balance');
-    //var balanceProperties = getComputedStyle(balanceSelector);
-    
-    if(balance < 0) {
-         //Esta ocorrendo prejuizo
-      balanceSelector.style.color = ('red');
-         return;
-
-    }if(balance > 0){
-        //Esta ocorrendo lucro
-        balanceSelector.style.color = ('green');
-        return;
-    }
-}
-
 showTransactions();
+
 
