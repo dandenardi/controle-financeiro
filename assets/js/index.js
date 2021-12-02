@@ -1,6 +1,16 @@
+/*Problemas:
+
+- a tabela duplica dados ao ser incluida nova transacao (devido a showTransaction ser chamada dentro de handleExchange)
+   - se showTransaction nao eh chamada em handleExchange, a transacao so eh adicionada mediante atualizacao forcada da pagina
+- A mascara funciona, mas esta atrelada ao evento onblur. Nao consegui fazer para onkeypress (continuava quebrando a funcionalidade)
+
+*/
+
+
+
+
+
 //funcao que fica responsavel por converter os dados obtidos de localStorage
-
-
 function handleStorage(){
     var transactionsRaw = localStorage.getItem('transactions'); //pegando o objeto de itens do localstorage de forma crua (string)
     if (transactionsRaw != null){
@@ -14,7 +24,7 @@ function handleStorage(){
     return transactions;
 }
     
-//incluir transacoes de compra ou venda de mercadoria (feito!)
+//inclui transacoes de compra ou venda de mercadoria
 function handleExchange(e){
     //Ao inserir transacao salvar em local storage (feito!)
     e.preventDefault();
@@ -32,9 +42,8 @@ function handleExchange(e){
     e.target.elements['merch-name'].value = '';
     e.target.elements['merch-value'].value = '';
 
-    showTransactions();
-    return false;
     //atualiza a tabela com todas as transacoes
+    showTransactions();
 }
 
 //Criar um extrato das transacoes incluidas na ordem que foram inseridas (feito!)
@@ -52,7 +61,7 @@ function showTransactions() {
     if (isEmpty){
         document.getElementById('statementTitle').innerHTML = "Não existem transações cadastradas";    
     }else{
-        //apresenta as transacoes
+         //apresenta as transacoes
         document.getElementById('statementTitle').innerHTML = "Extrato de Transações";
         document.querySelector('.transactions>thead').innerHTML =
         //desenha só o head
@@ -68,10 +77,10 @@ function showTransactions() {
             </td>
         </tr>`
 
-        cleanTable();
         //limpa a tabela para ser redesenhada
+        
         for (var transaction in transactions){
-
+            
             if( transactions[transaction].kind == 'compra') {
                 var tipo = '-';
             }else{
@@ -119,24 +128,21 @@ function showTransactions() {
     
     //Saldo final com destaque para lucro ou prejuizo
     //atualizar a lista com extrato ja com o calculo atualizado (feito!)
-    
+    transactions = []; //depois que a tabela e desenhada, a variavel e limpa para nova interacao
 };
-
+ 
 function cleanTable(){
     //limpa a tabela para ser redesenhada
     var transactions = handleStorage(); 
     
-    for (var transaction in transactions){
+    document.getElementById('statementTitle').innerHTML = "Extrato de Transações";
+        document.querySelector('.transactions>thead').innerHTML = ``;
+        //desenha só o head
+        
 
-        if( transactions[transaction].kind == 'compra') {
-            var tipo = '-';
-        }else{
-            var tipo = '+';
-        }
-        document.querySelector('.transactions>tbody').innerHTML += '';
-        //desenha cada transacao
-    
-    }
+        //limpa a tabela para ser redesenhada
+        
+        
 }
 
 function editTransactionsValue(){
@@ -180,22 +186,31 @@ function calculateBalance(transactions){
 
     }
     
-    console.log(balance);
     return(balance);
 
 }
 //validacao de formulario
 
+function validateNameField(e){
+    //validação de nome
+    if(e.target.value == ''){
+        alert('O campo "nome da transação" não pode ser vazio');
+        return false;
+    }
+}
 
- function validateFields(e){
+function validateValueField(e){
     //validacoes funcionam, porem o usuario so consegue colocar centavos mediante ponto. Virgula faz a funcao retornar NAN
     e.preventDefault();
+    
     var valuePattern = /[0-9,.]/g; 
     var userNumber = e.target.value;
-      if (valuePattern.test(e.key)){
+
+    if (valuePattern.test(e.key)){
         //so aceita numeros, ponto e virgula
         e.target.value += e.key;
         //o ideal e que o usuario nao possa incluir pontos ou virgulas e que isso seja adicionado automaticamente
+       
     }
 
 }
@@ -252,6 +267,18 @@ function convertNumber(variable){
     return convertedVariable;
 }
 
+function loadApp(){
+    //funcao que serve para apresentar showTransactions apenas no primeiro load (nao funcionou)
+    var alreadyLoaded = false;
+    if (alreadyLoaded == false){
+        showTransactions();
+        alreadyLoaded = true;
+    }   
+
+    return alreadyLoaded;
+}
+
 showTransactions();
+
 
 
