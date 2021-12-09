@@ -30,6 +30,7 @@ function handleExchange(e){
     e.preventDefault();
     var transactions = handleStorage();
 
+    
     transactions.push({
         
         name: e.target.elements['merch-name'].value,
@@ -41,8 +42,9 @@ function handleExchange(e){
     
     e.target.elements['merch-name'].value = '';
     e.target.elements['merch-value'].value = '';
-
+    
     //atualiza a tabela com todas as transacoes
+    
     showTransactions();
 }
 
@@ -77,8 +79,9 @@ function showTransactions() {
             </td>
         </tr>`
 
-        //limpa a tabela para ser redesenhada
+        //limpa a tabela para ser redesenhada (?)
         
+        document.querySelector('.transactions>tbody').innerHTML = '';
         for (var transaction in transactions){
             
             if( transactions[transaction].kind == 'compra') {
@@ -128,22 +131,9 @@ function showTransactions() {
     
     //Saldo final com destaque para lucro ou prejuizo
     //atualizar a lista com extrato ja com o calculo atualizado (feito!)
-    transactions = []; //depois que a tabela e desenhada, a variavel e limpa para nova interacao
+    //depois que a tabela e desenhada, a variavel e limpa para nova interacao
 };
- 
-function cleanTable(){
-    //limpa a tabela para ser redesenhada
-    var transactions = handleStorage(); 
-    
-    document.getElementById('statementTitle').innerHTML = "Extrato de Transações";
-        document.querySelector('.transactions>thead').innerHTML = ``;
-        //desenha só o head
-        
 
-        //limpa a tabela para ser redesenhada
-        
-        
-}
 
 function editTransactionsValue(){
     var transactions = handleStorage();
@@ -199,19 +189,23 @@ function validateNameField(e){
     }
 }
 
+let insertedValue = "";
 function validateValueField(e){
     //validacoes funcionam, porem o usuario so consegue colocar centavos mediante ponto. Virgula faz a funcao retornar NAN
     e.preventDefault();
     
     var valuePattern = /[0-9,.]/g; 
-    var userNumber = e.target.value;
 
     if (valuePattern.test(e.key)){
         //so aceita numeros, ponto e virgula
-        e.target.value += e.key;
+        insertedValue += e.key;
+        if (e.key == "Backspace") {
+            insertedValue = insertedValue.slice(0, -10);
+        };
         //o ideal e que o usuario nao possa incluir pontos ou virgulas e que isso seja adicionado automaticamente
-       
-    }
+        e.target.value = applyMask(insertedValue);    
+        
+    }; 
 
 }
 
@@ -225,7 +219,41 @@ function toBrCurrency(e){
     });
     e.target.value = convertedValue;
 
-    return convertedValue;
+    
+};
+
+// Mascará para número
+function applyMask(num){
+    //let num ="";
+    
+    let value = "";
+    //converte para string
+    if (num.length == 0) {
+        value = "";
+        //impede que o valor inserido seja nulo
+    } else if (num.length == 1) {
+        value = "0,0" + num;
+        //para um caracter inserido, concatena com 0,0
+    } else if (num.length <= 2) {
+        value = "0," + num;
+        //para 2 caracteres, concatena com 0, (forma as casas decimais)
+    }else if (num.length <= 5) { 
+        value = num.substring(0, num.length-2) + ',' + num.substring(num.length-2, num.length);
+    }else {        
+        value = num.substring(0, num.length-5) + '.'  + num.substring(num.length-5, num.length-2) + ',' + num.substring(num.length-2, num.length);
+        //para valores acima de 5 casas (chega ao primeiro milhar), inclui . (padrao brasileiro)
+    };
+    console.log(value);
+    return value;
+    
+};
+
+function cleanFields(e){
+    //limpa os campos para proxima insercao
+    e.preventDefault();
+    e.target.value = '';
+    insertedValue = '';
+
 }
 
 //Acao limpar dados (onclick) deve apresentar mensagem de confirmacao (feito!),
@@ -240,8 +268,9 @@ function cleanData(){
     };
 
     location.reload();
-}
+};
 
+//Se string, converte para numero Real ou se numero real converte para formato BRL
 //Se string, converte para numero Real ou se numero real converte para formato BRL
 function convertNumber(variable){
 
@@ -267,18 +296,5 @@ function convertNumber(variable){
     return convertedVariable;
 }
 
-function loadApp(){
-    //funcao que serve para apresentar showTransactions apenas no primeiro load (nao funcionou)
-    var alreadyLoaded = false;
-    if (alreadyLoaded == false){
-        showTransactions();
-        alreadyLoaded = true;
-    }   
-
-    return alreadyLoaded;
-}
 
 showTransactions();
-
-
-
