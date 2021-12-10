@@ -194,19 +194,19 @@ function validateValueField(e){
     //validacoes funcionam, porem o usuario so consegue colocar centavos mediante ponto. Virgula faz a funcao retornar NAN
     e.preventDefault();
     
-    var valuePattern = /[0-9,.]/g; 
+    var valuePattern = /[0-9]/g; 
 
     if (valuePattern.test(e.key)){
         //so aceita numeros, ponto e virgula
-        insertedValue += e.key;
-        if (e.key == "Backspace") {
-            insertedValue = insertedValue.slice(0, -10);
-        };
         //o ideal e que o usuario nao possa incluir pontos ou virgulas e que isso seja adicionado automaticamente
-        e.target.value = applyMask(insertedValue);    
+        console.log(e.key);
+        insertedValue += e.key;
         
-    }; 
-
+    }else{
+        alert('Apenas números são permitidos neste campo!');
+        return false;
+    };
+    e.target.value = applyMask(insertedValue); 
 }
 
 function toBrCurrency(e){
